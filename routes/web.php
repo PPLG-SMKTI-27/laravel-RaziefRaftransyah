@@ -7,5 +7,6 @@ Route::get('/', function () {
     return view('porto');
 });
 
-
-Route::get('/project', [projectController::class, 'halo']);
+Route::get('/project', function () {
+    return view('project');
+});
