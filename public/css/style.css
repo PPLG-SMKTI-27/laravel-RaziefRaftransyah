@@ -40,20 +40,22 @@
       font-size: 1.2rem;
       opacity: 0.9;
     }
-
-    nav {
-      background: #020617;
-      padding: 15px;
-      position: sticky;
-      top: 0;
-    }
-
     nav ul {
-      display: flex;
-      justify-content: center;
-      gap: 25px;
-      list-style: none;
-    }
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%; 
+}
+
+
+.nav-login {
+  margin-left: auto;
+}
+
+
 
     nav a {
       color: #e5e7eb;
@@ -139,3 +141,15 @@
       font-size: 0.9rem;
       opacity: 0.7;
     }
+    .container {
+  width: 100%;
+  overflow: visible;
+}
+
+nav {
+  background: #020617;
+  padding: 15px;
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+}

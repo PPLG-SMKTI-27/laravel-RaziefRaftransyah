@@ -2,11 +2,18 @@
 @section('title', 'Portofolio Razief Raftransyah')
 
 @section('nav')
+
+    <ul>
       <li><a href="#about">Tentang</a></li>
       <li><a href="#skills">Skill</a></li>
       <li><a href="/project">Proyek</a></li>
       <li><a href="#contact">Kontak</a></li>
+      <li class="nav-login">
+        <a href="/login">Login</a>
+      </li>
+    </ul>
 @endsection
+
 @section('content')
   
   <header>
