@@ -12,6 +12,12 @@
         <a href="/login">Login</a>
       </li>
     </ul>
+    @if(session('success'))
+  <p style="color:green;">
+    {{ session('success') }}
+  </p>
+@endif
+
 @endsection
 
 @section('content')
