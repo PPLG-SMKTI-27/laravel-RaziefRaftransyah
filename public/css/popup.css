@@ -1,0 +1,73 @@
+.login-card {
+    
+    padding: 42px 38px;
+    border-radius: 22px;
+    min-height: 420px;
+}
+.login-wrapper {
+    width: 520px;
+    position: relative;
+}
+
+
+
+.popup {
+    position: absolute;
+    top: -70px;
+    left: 0;
+
+    width: 100%;
+    padding: 14px 20px;
+
+    box-sizing: border-box;
+
+    border-radius: 16px;
+    text-align: center;
+    font-weight: 500;
+
+    animation: fadeSlideDown 0.5s ease-out both;
+    z-index: 20;
+}
+
+
+.popup.error {
+    background: #dc2626;
+    color: #ffffff;
+}
+
+.popup.success {
+    background: #16a34a;
+    color: #ffffff;
+}
+
+
+/* Animasi masuk */
+@keyframes fadeSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-14px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Button close (optional) */
+.popup button {
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    color: inherit;
+}
+
+@media (max-width: 640px) {
+    .login-wrapper {
+        width: 90%;
+    }
+
+    .login-card {
+        padding: 32px 24px;
+    }
+}
