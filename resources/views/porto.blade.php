@@ -70,16 +70,6 @@
     </section>
 
 </main>
-<script>
-function closePopup(btn) {
-    btn.parentElement.remove();
-}
 
-setTimeout(() => {
-    document.querySelectorAll('.popup').forEach(popup => {
-        popup.remove();
-    });
-}, 3500);
-</script>
 
 @endsection
