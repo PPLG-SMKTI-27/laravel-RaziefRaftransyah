@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Project;
 
-class projectController extends Controller{
-    public function halo()
+class ProjectController extends Controller{
+     public function index()
     {
-        return "Razief Raftransyah";
+        $projects = Project::with('skills')->get();
+        return view('project', compact('projects'));
     }
-};
+}

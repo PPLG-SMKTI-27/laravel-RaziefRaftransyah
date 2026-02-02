@@ -11,7 +11,6 @@
     <div class="nav-container">
         <ul class="nav-menu">
             <li><a href="/">< Back</a></li>
-            
         </ul>
     </div>
 </nav>
@@ -24,161 +23,66 @@
     <p class="section-subtitle">Beberapa project yang pernah saya kerjakan</p>
 
     <div class="projects-slider" id="projectSlider">
-    <div class="projects-track" id="projectTrack">
+        <div class="projects-track" id="projectTrack">
 
-        <div class="project-card">
-    <img src="/images/frost.jpg" alt="Portfolio Website">
+            @foreach ($projects as $project)
+            <div class="project-card">
+                <img src="{{ asset('images/'.$project->image) }}" alt="{{ $project->title }}">
 
-    <div class="project-content">
-        <h3 class="project-title">Personal Portfolio</h3>
+                <div class="project-content">
+                    <h3 class="project-title">{{ $project->title }}</h3>
 
-        <p class="project-desc">
-            Website portfolio personal dengan Laravel,
-            menampilkan project, skill, dan kontak.
-        </p>
+                    <p class="project-desc">
+                        {{ $project->description }}
+                    </p>
 
-        <div class="tech-stack">
-            <span>Laravel</span>
-            <span>PHP</span>
-            <span>MySQL</span>
-            <span>CSS</span>
-        </div>
+                    <div class="tech-stack">
+                        @foreach ($project->skills as $skill)
+                            <span>{{ $skill->name }}</span>
+                        @endforeach
+                    </div>
 
-        <div class="project-links">
-            <a href="#">Demo</a>
-            <a href="#">GitHub</a>
-        </div>
-    </div>
-</div>
+                    <div class="project-links">
+                        @if($project->link)
+                            <a href="{{ $project->link }}" target="_blank">Demo</a>
+                        @endif
+                    </div>
+                </div>
+            </div>
+            @endforeach
+            @foreach ($projects as $project)
+            <div class="project-card">
+                <img src="{{ asset('images/'.$project->image) }}" alt="{{ $project->title }}">
 
-<div class="project-card">
-    <img src="/images/frost.jpg" alt="E-Commerce">
+                <div class="project-content">
+                    <h3 class="project-title">{{ $project->title }}</h3>
 
-    <div class="project-content">
-        <h3 class="project-title">Mini E-Commerce</h3>
+                    <p class="project-desc">
+                        {{ $project->description }}
+                    </p>
 
-        <p class="project-desc">
-            Aplikasi e-commerce sederhana dengan
-            sistem login dan manajemen produk.
-        </p>
+                    <div class="tech-stack">
+                        @foreach ($project->skills as $skill)
+                            <span>{{ $skill->name }}</span>
+                        @endforeach
+                    </div>
 
-        <div class="tech-stack">
-            <span>Laravel</span>
-            <span>Blade</span>
-            <span>MySQL</span>
-        </div>
+                    <div class="project-links">
+                        @if($project->link)
+                            <a href="{{ $project->link }}" target="_blank">Demo</a>
+                        @endif
+                    </div>
+                </div>
+            </div>
+            @endforeach
 
-        <div class="project-links">
-            <a href="#">Demo</a>
-            <a href="#">GitHub</a>
-        </div>
-    </div>
-</div>
-
-<div class="project-card">
-    <img src="/images/frost.jpg" alt="Admin Dashboard">
-
-    <div class="project-content">
-        <h3 class="project-title">Admin Dashboard</h3>
-
-        <p class="project-desc">
-            Dashboard admin dengan chart, CRUD data,
-            dan sistem role user.
-        </p>
-
-        <div class="tech-stack">
-            <span>Laravel</span>
-            <span>Chart.js</span>
-            <span>Tailwind</span>
-        </div>
-
-        <div class="project-links">
-            <a href="#">Demo</a>
-            <a href="#">GitHub</a>
         </div>
     </div>
-</div>
+
+</section>
 
 
-        <!-- DUPLIKASI -->
-        <div class="project-card">
-    <img src="/images/frost.jpg" alt="Portfolio Website">
 
-    <div class="project-content">
-        <h3 class="project-title">Personal Portfolio</h3>
-
-        <p class="project-desc">
-            Website portfolio personal dengan Laravel,
-            menampilkan project, skill, dan kontak.
-        </p>
-
-        <div class="tech-stack">
-            <span>Laravel</span>
-            <span>PHP</span>
-            <span>MySQL</span>
-            <span>CSS</span>
-        </div>
-
-        <div class="project-links">
-            <a href="#">Demo</a>
-            <a href="#">GitHub</a>
-        </div>
-    </div>
-</div>
-
-<div class="project-card">
-    <img src="/images/frost.jpg" alt="E-Commerce">
-
-    <div class="project-content">
-        <h3 class="project-title">Mini E-Commerce</h3>
-
-        <p class="project-desc">
-            Aplikasi e-commerce sederhana dengan
-            sistem login dan manajemen produk.
-        </p>
-
-        <div class="tech-stack">
-            <span>Laravel</span>
-            <span>Blade</span>
-            <span>MySQL</span>
-        </div>
-
-        <div class="project-links">
-            <a href="#">Demo</a>
-            <a href="#">GitHub</a>
-        </div>
-    </div>
-</div>
-
-<div class="project-card">
-    <img src="/images/frost.jpg" alt="Admin Dashboard">
-
-    <div class="project-content">
-        <h3 class="project-title">Admin Dashboard</h3>
-
-        <p class="project-desc">
-            Dashboard admin dengan chart, CRUD data,
-            dan sistem role user.
-        </p>
-
-        <div class="tech-stack">
-            <span>Laravel</span>
-            <span>Chart.js</span>
-            <span>Tailwind</span>
-        </div>
-
-        <div class="project-links">
-            <a href="#">Demo</a>
-            <a href="#">GitHub</a>
-        </div>
-    </div>
-</div>
-
-
-    </div>
-</div>
-
-</div>
 <script>
 const slider = document.getElementById('projectSlider');
 const track  = document.getElementById('projectTrack');
