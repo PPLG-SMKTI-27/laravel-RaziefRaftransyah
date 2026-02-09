@@ -107,6 +107,25 @@
 .project-links a:hover {
     text-decoration: underline;
 }
+.coming-soon-wrapper {
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #aaa;
+}
+
+.coming-soon-wrapper h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.coming-soon-wrapper p {
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
 
 
 

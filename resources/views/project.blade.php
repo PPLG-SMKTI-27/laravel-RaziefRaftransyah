@@ -22,6 +22,11 @@
     <h1 class="section-title">Projects</h1>
     <p class="section-subtitle">Beberapa project yang pernah saya kerjakan</p>
 
+    @if ($projects->isEmpty())
+    <div class="coming-soon-wrapper">
+        <h2>Coming Soon</h2>
+    </div>
+    @else
     <div class="projects-slider" id="projectSlider">
         <div class="projects-track" id="projectTrack">
 
@@ -78,9 +83,6 @@
 
         </div>
     </div>
-
-</section>
-
 
 
 <script>
@@ -179,7 +181,7 @@ function applyTransform() {
     track.style.transform = `translateX(${translateX}px)`;
 }
 </script>
-
+@endif
 
 
 </section>
