@@ -1,4 +1,4 @@
-@extends('layout.main')
+@extends('layouts.main')
 @section('title','Portofolio RaziefRaftransyah')
 
 @push('style')
@@ -10,13 +10,31 @@
     <div class="nav-container">
         <span class="logo">Razief</span>
         <ul class="nav-menu">
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="/project">Project</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="/register">Register</a></li>
-            <li><a href="/login">Login</a></li>
-        </ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="/projects">Project</a></li>
+    <li><a href="#contact">Contact</a></li>
+
+    @guest
+        <li><a href="/register">Register</a></li>
+        <li><a href="/login">Login</a></li>
+    @endguest
+
+    @auth
+        <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
+        <li>
+        <form action="{{ route('logout') }}" method="POST" style="display:inline;">
+        @csrf
+        <button type="submit" class="nav-link-btn">
+            Logout
+        </button>
+    </form>
+</li>
+
+    @endauth
+</ul>
+
+
     </div>
 </nav>
 @endsection

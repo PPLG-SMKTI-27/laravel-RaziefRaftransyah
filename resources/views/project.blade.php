@@ -1,4 +1,4 @@
-@extends('layout.main')
+@extends('layouts.main')
 
 @section('title','Projects')
 
@@ -11,6 +11,18 @@
     <div class="nav-container">
         <ul class="nav-menu">
             <li><a href="/">< Back</a></li>
+            @auth
+        <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
+        <li>
+        <form action="{{ route('logout') }}" method="POST" style="display:inline;">
+        @csrf
+        <button type="submit" class="nav-link-btn">
+            Logout
+        </button>
+    </form>
+</li>
+
+    @endauth
         </ul>
     </div>
 </nav>
