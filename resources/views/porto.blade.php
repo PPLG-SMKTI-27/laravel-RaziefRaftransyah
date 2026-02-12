@@ -20,18 +20,23 @@
         <li><a href="/login">Login</a></li>
     @endguest
 
-    @auth
-        <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
-        <li>
-        <form action="{{ route('logout') }}" method="POST" style="display:inline;">
-        @csrf
-        <button type="submit" class="nav-link-btn">
-            Logout
-        </button>
-    </form>
-</li>
+   @auth
 
-    @endauth
+    @if(auth()->user()->role === 'admin')
+        <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
+    @endif
+
+    <li>
+        <form action="{{ route('logout') }}" method="POST" style="display:inline;">
+            @csrf
+            <button type="submit" class="nav-link-btn">
+                Logout
+            </button>
+        </form>
+    </li>
+
+@endauth
+
 </ul>
 
 
@@ -46,7 +51,7 @@
     <section id="about" class="hero-section">
     <div class="profile-wrapper">
 
-        <img src="{{ asset('images/Dreamybull 11.jpg') }}"
+        <img src="{{ asset('images/RPL.jpeg') }}"
              alt="Profile Photo"
              class="profile-img-square">
 

@@ -11,18 +11,23 @@
     <div class="nav-container">
         <ul class="nav-menu">
             <li><a href="/">< Back</a></li>
-            @auth
-        <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
-        <li>
-        <form action="{{ route('logout') }}" method="POST" style="display:inline;">
-        @csrf
-        <button type="submit" class="nav-link-btn">
-            Logout
-        </button>
-    </form>
-</li>
+        @auth
 
-    @endauth
+    @if(auth()->user()->role === 'admin')
+        <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
+    @endif
+
+    <li>
+        <form action="{{ route('logout') }}" method="POST" style="display:inline;">
+            @csrf
+            <button type="submit" class="nav-link-btn">
+                Logout
+            </button>
+        </form>
+    </li>
+
+@endauth
+
         </ul>
     </div>
 </nav>
