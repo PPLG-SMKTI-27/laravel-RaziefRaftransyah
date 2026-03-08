@@ -46,8 +46,7 @@ required>
 type="text"
 name="link"
 class="form-input form-link"
-value="{{ old('link',$project->link) }}"
-required>
+value="{{ old('link',$project->link) }}">
 
 </div>
 
