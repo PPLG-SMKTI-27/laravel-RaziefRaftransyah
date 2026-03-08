@@ -1,26 +1,33 @@
 /* =========================
    PROJECT SECTION
 ========================= */
+
 .projects-section {
-    max-width: 1200px;
-    margin: 120px auto;
+    max-width: 1100px;
+    margin: 160px auto;
     padding: 0 24px;
 }
 
 .section-title {
     text-align: center;
-    font-size: 2.4rem;
+    font-size: 2rem;
+    letter-spacing: 6px;
+    margin-bottom: 8px;
 }
 
 .section-subtitle {
     text-align: center;
-    color: #94a3b8;
-    margin-bottom: 50px;
+    color: #6b7280;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    margin-bottom: 70px;
 }
+
 
 /* =========================
    SLIDER
 ========================= */
+
 .projects-slider {
     overflow: hidden;
     width: 100%;
@@ -33,100 +40,201 @@
 
 .projects-track {
     display: flex;
-    gap: 28px;
+    gap: 40px;
     will-change: transform;
 }
 
+
+/* =========================
+   PROJECT CARD
+========================= */
+
 .project-card {
-    min-width: 340px;
-    height: 420px; /* tinggi tetap */
+
+    min-width: 360px;
+    height: 440px;
+
     display: flex;
     flex-direction: column;
-    background: #020617;
-    border-radius: 18px;
+
+    background: rgba(10,12,16,0.6);
+
+    backdrop-filter: blur(8px);
+
+    border: 1px solid #1f2937;
+
+    border-radius: 4px;
+
     overflow: hidden;
-    border: 1px solid #1e293b;
+
+    position: relative;
+
+    transition: 0.35s;
 }
 
-/* Image */
+/* holographic border */
+.project-card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border:1px solid transparent;
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(96,165,250,0.4),
+        transparent
+    );
+    opacity:0;
+    transition:0.4s;
+}
+
+/* hover effect */
+.project-card:hover{
+
+    transform: translateY(-6px);
+
+    border-color:#60a5fa;
+
+    box-shadow:
+        0 0 20px rgba(96,165,250,0.15),
+        inset 0 0 30px rgba(96,165,250,0.05);
+}
+
+.project-card:hover::before{
+    opacity:1;
+}
+
+
+/* =========================
+   IMAGE
+========================= */
+
 .project-card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-}
 
-/* Content */
-.project-content {
-    padding: 18px;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-}
+    width:100%;
+    height:190px;
 
-.project-title {
-    font-size: 1.1rem;
-    margin-bottom: 6px;
-}
+    object-fit:cover;
 
-.project-desc {
-    font-size: 0.9rem;
-    color: #cbd5f5;
-    line-height: 1.4;
-    margin-bottom: 14px;
-}
+    filter:
+        contrast(1.05)
+        brightness(0.9);
 
-/* Tech stack */
-.tech-stack {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-bottom: 14px;
-}
-
-.tech-stack span {
-    font-size: 0.7rem;
-    padding: 4px 10px;
-    border-radius: 999px;
-    background: #1e293b;
-    color: #38bdf8;
-}
-
-/* Links */
-.project-links {
-    margin-top: auto;
-    display: flex;
-    gap: 14px;
-}
-
-.project-links a {
-    font-size: 0.8rem;
-    color: #38bdf8;
-    text-decoration: none;
-}
-
-.project-links a:hover {
-    text-decoration: underline;
-}
-.coming-soon-wrapper {
-    min-height: 70vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #aaa;
-}
-
-.coming-soon-wrapper h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-}
-
-.coming-soon-wrapper p {
-    font-size: 1.2rem;
-    opacity: 0.8;
+    border-bottom:1px solid #1f2937;
 }
 
 
+/* =========================
+   CONTENT
+========================= */
+
+.project-content{
+
+    padding:20px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    flex:1;
+}
+
+.project-title{
+
+    font-size:0.9rem;
+
+    letter-spacing:3px;
+
+    margin-bottom:10px;
+
+    color:#e5e7eb;
+}
+
+.project-desc{
+
+    font-size:0.8rem;
+
+    color:#9ca3af;
+
+    line-height:1.6;
+
+    margin-bottom:16px;
+}
+
+
+/* =========================
+   TECH STACK
+========================= */
+
+.tech-stack{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:6px;
+
+    margin-bottom:18px;
+}
+
+.tech-stack span{
+
+    font-size:0.65rem;
+
+    padding:4px 10px;
+
+    border:1px solid #1f2937;
+
+    color:#94a3b8;
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
+
+    transition:0.25s;
+}
+
+.tech-stack span:hover{
+
+    border-color:#60a5fa;
+
+    color:#60a5fa;
+}
+
+
+/* =========================
+   LINKS
+========================= */
+
+.project-links{
+
+    margin-top:auto;
+
+    display:flex;
+
+    gap:16px;
+}
+
+.project-links a{
+
+    font-size:0.7rem;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    color:#9ca3af;
+
+    border-bottom:1px solid transparent;
+
+    transition:0.3s;
+}
+
+.project-links a:hover{
+
+    color:#60a5fa;
+
+    border-color:#60a5fa;
+}
 
 

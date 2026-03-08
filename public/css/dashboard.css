@@ -1,0 +1,897 @@
+/* =========================
+   FORM LAYOUT
+========================= */
+
+.form-container{
+max-width:700px;
+margin:auto;
+padding:100px 20px;
+}
+
+.form-title{
+font-family:'Michroma',sans-serif;
+font-size:1.2rem;
+letter-spacing:4px;
+text-transform:uppercase;
+margin-bottom:40px;
+}
+
+.form-title::after{
+content:" // bridges network";
+display:block;
+font-size:0.6rem;
+color:#6b7280;
+margin-top:8px;
+letter-spacing:3px;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+.form-group{
+margin-bottom:28px;
+}
+
+.form-group label{
+display:block;
+font-size:0.65rem;
+letter-spacing:2px;
+text-transform:uppercase;
+color:#6b7280;
+margin-bottom:8px;
+}
+
+.form-input,
+.form-textarea{
+width:100%;
+background:#0f1115;
+border:1px solid #1f2937;
+padding:12px;
+color:#e5e7eb;
+font-size:0.9rem;
+}
+
+.form-input:focus,
+.form-textarea:focus{
+outline:none;
+border-color:#60a5fa;
+background:#111418;
+}
+
+.form-textarea{
+min-height:120px;
+resize:vertical;
+}
+
+.form-file{
+font-size:0.75rem;
+color:#9ca3af;
+}
+
+.form-btn{
+margin-top:20px;
+border:1px solid #1f2937;
+background:none;
+padding:10px 20px;
+font-size:0.7rem;
+letter-spacing:2px;
+text-transform:uppercase;
+color:#9ca3af;
+cursor:pointer;
+}
+
+.form-btn:hover{
+border-color:#60a5fa;
+color:#60a5fa;
+background:#111418;
+}
+
+
+/* =========================
+   LINK SIZE
+========================= */
+
+.form-link{
+max-width:420px;
+}
+
+
+/* =========================
+   HOLOGRAM CONTAINER
+========================= */
+
+.hologram-box{
+
+position:relative;
+width:220px;
+height:140px;
+
+margin-top:14px;
+
+border:1px solid #1f2937;
+
+overflow:hidden;
+
+background:#0b0d11;
+
+}
+
+
+/* =========================
+   IMAGE BASE
+========================= */
+
+.hologram-box img{
+
+width:100%;
+height:100%;
+object-fit:cover;
+
+position:absolute;
+top:0;
+left:0;
+
+display:none;
+
+}
+
+#previewImage{
+z-index:1;
+}
+
+
+/* =========================
+   GLITCH IMAGE PREVIEW
+========================= */
+
+.glitch-box{
+
+position:relative;
+
+width:220px;
+height:140px;
+
+margin-top:14px;
+
+overflow:hidden;
+
+border:1px solid #1f2937;
+
+background:#0b0d11;
+
+}
+
+
+/* BASE IMAGE */
+
+.glitch-box img{
+
+width:100%;
+height:100%;
+
+object-fit:cover;
+
+display:none;
+
+position:absolute;
+
+top:0;
+left:0;
+
+z-index:1;
+
+}
+
+
+/* =========================
+   GLITCH LAYERS
+========================= */
+
+.glitch-layer{
+
+position:absolute;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+pointer-events:none;
+
+z-index:2;
+
+opacity:0;
+
+}
+
+
+/* layer RGB split */
+
+.layer1{
+
+background:
+
+linear-gradient(
+transparent 20%,
+rgba(255,0,0,0.15) 21%,
+transparent 22%,
+transparent 40%,
+rgba(0,255,255,0.15) 41%,
+transparent 42%
+);
+
+mix-blend-mode:screen;
+
+}
+
+
+/* layer distortion */
+
+.layer2{
+
+background:
+
+linear-gradient(
+transparent 30%,
+rgba(255,255,255,0.15) 31%,
+transparent 32%,
+transparent 60%,
+rgba(0,0,0,0.2) 61%,
+transparent 62%
+);
+
+}
+
+
+/* =========================
+   ACTIVE GLITCH EFFECT
+========================= */
+
+.glitch-box.active img{
+
+display:block;
+
+animation:
+
+glitchShake 3s infinite;
+
+}
+
+.glitch-box.active .layer1{
+
+animation:glitchRGB 2.5s infinite;
+
+}
+
+.glitch-box.active .layer2{
+
+animation:glitchSlice 2.5s infinite;
+
+}
+
+
+/* =========================
+   GLITCH SHAKE
+========================= */
+
+@keyframes glitchShake{
+
+0%{transform:translate(0,0)}
+
+10%{transform:translate(-1px,1px)}
+
+20%{transform:translate(1px,-1px)}
+
+30%{transform:translate(-1px,0)}
+
+40%{transform:translate(0,1px)}
+
+50%{transform:translate(1px,-1px)}
+
+60%{transform:translate(-1px,1px)}
+
+70%{transform:translate(0,-1px)}
+
+80%{transform:translate(1px,0)}
+
+90%{transform:translate(-1px,1px)}
+
+100%{transform:translate(0,0)}
+
+}
+
+
+/* =========================
+   RGB GLITCH
+========================= */
+
+@keyframes glitchRGB{
+
+0%{
+opacity:0;
+}
+
+20%{
+opacity:0.6;
+transform:translateX(-2px);
+}
+
+21%{
+opacity:0;
+}
+
+40%{
+opacity:0.6;
+transform:translateX(2px);
+}
+
+41%{
+opacity:0;
+}
+
+100%{
+opacity:0;
+}
+
+}
+
+
+/* =========================
+   SLICE GLITCH
+========================= */
+
+@keyframes glitchSlice{
+
+0%{
+opacity:0;
+}
+
+45%{
+opacity:0;
+}
+
+50%{
+opacity:1;
+transform:translateX(-4px);
+}
+
+52%{
+transform:translateX(4px);
+}
+
+55%{
+opacity:0;
+}
+
+100%{
+opacity:0;
+}
+
+}
+/* =========================
+   DEATH STRANDING TERMINAL
+========================= */
+
+.ds-dashboard{
+
+background:#060b14;
+
+min-height:100vh;
+
+padding:120px 20px;
+
+color:#9ca3af;
+
+font-family:'Michroma',sans-serif;
+
+}
+
+/* container */
+
+.ds-container{
+
+max-width:1200px;
+
+margin:auto;
+
+}
+
+/* header */
+
+.ds-header{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-bottom:50px;
+
+border-bottom:1px solid #1f2937;
+
+padding-bottom:20px;
+
+}
+
+/* title */
+
+.ds-title{
+
+font-size:1rem;
+
+letter-spacing:4px;
+
+color:#e5e7eb;
+
+}
+
+.ds-title span{
+
+display:block;
+
+font-size:0.6rem;
+
+letter-spacing:3px;
+
+color:#60a5fa;
+
+margin-top:6px;
+
+}
+
+/* add button */
+
+.ds-btn-add{
+
+border:1px solid #1f2937;
+
+padding:10px 18px;
+
+font-size:0.7rem;
+
+letter-spacing:2px;
+
+color:#9ca3af;
+
+text-decoration:none;
+
+transition:0.3s;
+
+}
+
+.ds-btn-add:hover{
+
+border-color:#60a5fa;
+
+color:#60a5fa;
+
+background:#0f172a;
+
+}
+
+/* alert */
+
+.ds-alert{
+
+border:1px solid #1f2937;
+
+padding:12px 16px;
+
+margin-bottom:30px;
+
+background:#0f172a;
+
+font-size:0.75rem;
+
+letter-spacing:2px;
+
+}
+
+/* table wrapper */
+
+.ds-table-wrapper{
+
+border:1px solid #1f2937;
+
+background:#020617;
+
+overflow:hidden;
+
+}
+
+/* table */
+
+.ds-table{
+
+width:100%;
+
+border-collapse:collapse;
+
+font-size:0.8rem;
+
+}
+
+/* header */
+
+.ds-table thead{
+
+background:#020617;
+
+border-bottom:1px solid #1f2937;
+
+}
+
+.ds-table th{
+
+padding:16px;
+
+font-size:0.65rem;
+
+letter-spacing:2px;
+
+text-align:left;
+
+color:#6b7280;
+
+}
+
+/* rows */
+
+.ds-table td{
+
+padding:18px 16px;
+
+border-bottom:1px solid #0f172a;
+
+}
+
+/* hover */
+
+.ds-table tr{
+
+transition:0.25s;
+
+}
+
+.ds-table tr:hover{
+
+background:#0f172a;
+
+}
+
+/* title */
+
+.ds-title-cell{
+
+color:#e5e7eb;
+
+letter-spacing:1px;
+
+}
+
+/* preview image */
+
+.ds-thumb{
+
+width:70px;
+
+height:45px;
+
+object-fit:cover;
+
+border:1px solid #1f2937;
+
+}
+
+/* link */
+
+.ds-link{
+
+font-size:0.65rem;
+
+letter-spacing:2px;
+
+text-decoration:none;
+
+color:#9ca3af;
+
+}
+
+.ds-link:hover{
+
+color:#60a5fa;
+
+}
+
+/* ACTION COLUMN */
+
+.ds-actions{
+
+display:flex;
+
+align-items:center;
+
+gap:16px;
+
+}
+
+/* supaya form tidak membuat block baru */
+
+.ds-delete-form{
+
+display:inline;
+
+margin:0;
+
+padding:0;
+
+}
+
+/* edit */
+
+.ds-edit{
+
+font-size:0.65rem;
+
+letter-spacing:2px;
+
+text-decoration:none;
+
+color:#9ca3af;
+
+}
+
+.ds-edit:hover{
+
+color:#60a5fa;
+
+}
+
+/* delete */
+
+.ds-delete{
+
+background:none;
+
+border:none;
+
+color:#6b7280;
+
+font-size:0.65rem;
+
+letter-spacing:2px;
+
+cursor:pointer;
+
+padding:0;
+
+}
+
+.ds-delete:hover{
+
+color:#ef4444;
+
+}
+/* =========================
+   FUTURISTIC HOLOGRAM
+========================= */
+
+.coming-soon-wrapper{
+display:flex;
+justify-content:center;
+align-items:center;
+height:380px;
+}
+
+/* container */
+
+.holo-container{
+
+position:relative;
+
+width:560px;
+height:80px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+overflow:hidden;
+
+border-top:1px solid rgba(0,255,255,0.6);
+border-bottom:1px solid rgba(0,255,255,0.6);
+
+}
+
+/* hologram glow */
+
+.holo-glow{
+
+position:absolute;
+
+width:70%;
+height:100%;
+
+background:linear-gradient(
+90deg,
+transparent,
+rgba(0,255,255,0.35),
+transparent
+);
+
+filter:blur(30px);
+
+opacity:.8;
+
+}
+
+/* moving scan beam */
+
+.holo-scan{
+
+position:absolute;
+
+width:220px;
+height:100%;
+
+background:linear-gradient(
+90deg,
+transparent,
+rgba(0,255,255,0.9),
+transparent
+);
+
+filter:blur(10px);
+
+animation:holoScan 2.2s linear infinite;
+
+}
+
+/* grid projection */
+
+.holo-grid{
+
+position:absolute;
+
+width:100%;
+height:100%;
+
+background-image:
+linear-gradient(rgba(0,255,255,.05) 1px, transparent 1px),
+linear-gradient(90deg, rgba(0,255,255,.05) 1px, transparent 1px);
+
+background-size:40px 40px;
+
+opacity:.3;
+
+animation:gridMove 8s linear infinite;
+
+}
+
+/* hologram text */
+
+.holo-text{
+
+position:relative;
+
+font-size:22px;
+
+letter-spacing:10px;
+
+font-family:'Michroma',sans-serif;
+
+color:#7ffcff;
+
+text-shadow:
+0 0 6px #00eaff,
+0 0 16px #00eaff,
+0 0 32px #00eaff,
+0 0 60px rgba(0,255,255,.5);
+
+animation:textFlicker 3s infinite;
+
+}
+
+/* scan animation */
+
+@keyframes holoScan{
+
+0%{
+transform:translateX(-300px);
+}
+
+100%{
+transform:translateX(300px);
+}
+
+}
+
+/* grid animation */
+
+@keyframes gridMove{
+
+0%{
+transform:translateY(0);
+}
+
+100%{
+transform:translateY(40px);
+}
+
+}
+
+/* hologram flicker */
+
+@keyframes textFlicker{
+
+0%,100%{
+opacity:1;
+}
+
+48%{
+opacity:.9;
+}
+
+50%{
+opacity:.4;
+}
+
+52%{
+opacity:1;
+}
+
+}
+.project-form{
+
+max-width:500px;
+margin:auto;
+display:flex;
+flex-direction:column;
+gap:20px;
+
+}
+
+.form-group{
+
+display:flex;
+flex-direction:column;
+gap:6px;
+
+}
+
+.form-group input{
+
+padding:10px;
+background:#0a0a0a;
+border:1px solid #222;
+color:white;
+
+}
+
+.form-group input:focus{
+
+outline:none;
+border-color:#00ffff;
+
+}
+
+.btn-save{
+
+padding:12px;
+background:#00ffff;
+border:none;
+cursor:pointer;
+font-weight:bold;
+color:black;
+
+}
+
+.btn-save:hover{
+
+background:#00cccc;
+
+}

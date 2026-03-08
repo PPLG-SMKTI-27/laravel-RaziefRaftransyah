@@ -41,7 +41,7 @@
 
     @if ($projects->isEmpty())
     <div class="coming-soon-wrapper">
-        <h2>Coming Soon</h2>
+        <h2>COMING SOON</h2>
     </div>
     @else
     <div class="projects-slider" id="projectSlider">

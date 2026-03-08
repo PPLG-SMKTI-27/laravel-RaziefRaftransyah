@@ -12,11 +12,11 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('porto')" :active="request()->routeIs('porto')">
+                    <x-nav-link :href="route('page.index')" :active="request()->routeIs('page.index')">
                         Portofolio
                     </x-nav-link>
-                    
-                    <x-nav-link :href="route('project')" :active="request()->routeIs('project.*')">
+
+                    <x-nav-link :href="route('projects.index')" :active="request()->routeIs('projects.index')">
                         Projects
                     </x-nav-link>
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">

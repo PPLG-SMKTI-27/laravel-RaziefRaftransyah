@@ -14,175 +14,244 @@ html {
 }
 
 body {
-    font-family: 'Inter', 'Segoe UI', sans-serif;
-    background-color: #0f172a; /* dark slate */
+    background-color: #0f1115;
     color: #e5e7eb;
-    line-height: 1.6;
-    overflow-x: hidden;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
 }
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(
+        rgba(255,255,255,0.02) 1px,
+        transparent 1px
+    );
+    background-size: 100% 60px;
+    pointer-events: none;
+}
+
 
 /* =========================
    TYPOGRAPHY
 ========================= */
-h1, h2, h3, h4 {
-    font-weight: 600;
-    color: #f8fafc;
+h1, h2, h3, h4,
+.logo,
+.nav-menu a,
+.hero-name {
+    font-family: 'Michroma', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 400;
+    color: #e4e7eb;
 }
 
 h1 {
-    font-size: 2.2rem;
+    font-size: 2rem;
 }
 
 h2 {
-    font-size: 1.6rem;
-    margin-bottom: 20px;
+    font-size: 1.3rem;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #1b1f26;
+    padding-bottom: 12px;
 }
 
 p {
-    color: #cbd5f5;
-    font-size: 1rem;
+    color: #9ca3af;
+    font-size: 0.95rem;
 }
 
 a {
-    color: #38bdf8;
+    color: #8b949e;
     text-decoration: none;
+    transition: 0.3s;
 }
 
 a:hover {
-    color: #7dd3fc;
+    color: #ffffff;
 }
 
 /* =========================
    LAYOUT
 ========================= */
 main {
-    max-width: 1100px;
+    max-width: 1000px;
     margin: auto;
-    padding: 40px 20px;
+    padding: 60px 20px;
 }
 
 section {
-    margin-bottom: 80px;
+    margin-bottom: 120px;
+}
+
+/* thin divider */
+section::after {
+    content: "";
+    display: block;
+    height: 1px;
+    background: #161a21;
+    margin-top: 60px;
 }
 
 /* =========================
    NAVBAR
 ========================= */
 .navbar {
-    position: sticky;
+    background: rgba(20, 23, 28, 0.8);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid #1f2937;
+    position: fixed;
     top: 0;
-    z-index: 100;
-    background: rgba(15, 23, 42, 0.85);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid #1e293b;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
 .nav-container {
-    max-width: 1100px;
+    max-width: 1000px;
     margin: auto;
-    padding: 16px 20px;
+    padding: 18px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .logo {
-    font-size: 1.3rem;
-    font-weight: bold;
-    color: #38bdf8;
+    font-family: 'Michroma', sans-serif;
+    letter-spacing: 4px;
+    font-size: 0.9rem;
+    color: #9ca3af;
 }
+
 
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: 24px;
+    gap: 32px;
 }
 
-.nav-menu a {
-    color: #cbd5f5;
-    font-weight: 500;
+
+.nav-menu a,
+.nav-link-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+
+    font-family: inherit;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+    color: #9ca3af;
+    transition: 0.3s;
+}
+.nav-menu a:hover,
+.nav-link-btn:hover {
+    color: #60a5fa;
 }
 
-.nav-menu a:hover {
-    color: #ffffff;
-}
+
 
 /* =========================
-   PROFILE HORIZONTAL
+   PROFILE
 ========================= */
 .profile-wrapper {
     display: flex;
     align-items: center;
-    gap: 40px;
-    max-width: 900px;
-    margin: auto;
+    gap: 60px;
 }
 
 .profile-img-square {
-    width: 180px;
-    height: 180px;
+    width: 220px;
+    height: 220px;
     object-fit: cover;
-    border-radius: 12px; /* rounded kecil */
-    border: 2px solid #38bdf8;
-    flex-shrink: 0;
+    border: 1px solid #1f2937;
 }
 
 .profile-info {
     max-width: 600px;
 }
-
-.profile-info .profile-name {
-    margin-bottom: 12px;
+.profile-desc {
+    max-width: 500px;
+    color: #9ca3af;
+    line-height: 1.8;
+    margin-top: 20px;
 }
 
-.profile-info .profile-desc {
-    margin-bottom: 20px;
+.profile-name {
+    font-family: 'Michroma', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
 }
 
-/* =========================
-   RESPONSIVE (MOBILE)
-========================= */
-@media (max-width: 768px) {
-    .profile-wrapper {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .profile-img-square {
-        width: 150px;
-        height: 150px;
-    }
+.profile-name::after {
+    content: " — BRIDGES NETWORK";
+    display: block;
+    font-size: 0.6rem;
+    letter-spacing: 3px;
+    color: #374151;
+    margin-top: 10px;
 }
 
 /* =========================
    SKILLS
 ========================= */
+
+.skills-section {
+    padding: 100px 10%;
+    border-bottom: 1px solid #1f2937;
+}
+
+.skills-section h2,
+.contact-section h2 {
+    font-family: 'Michroma', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+}
 .skills-list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 14px;
+    gap: 12px;
 }
 
 .skills-list span {
-    background: #1e293b;
-    padding: 8px 16px;
-    border-radius: 999px;
-    font-size: 0.9rem;
-    border: 1px solid #334155;
+    border: 1px solid #1f2937;
+    padding: 8px 14px;
+    margin: 6px;
+    display: inline-block;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #9ca3af;
+    transition: 0.3s;
+}
+
+.skills-list span:hover {
+    border-color: #60a5fa;
+    color: #60a5fa;
 }
 
 /* =========================
    CONTACT
 ========================= */
 .contact-section {
-    background: #020617;
-    border-radius: 20px;
-    padding: 40px 20px;
+    padding: 100px 10%;
 }
 
-.contact-section p {
-    margin-bottom: 10px;
+.contact-section a {
+    color: #9ca3af;
+    text-decoration: none;
+}
+
+.contact-section a:hover {
+    color: #60a5fa;
 }
 
 /* =========================
@@ -190,92 +259,75 @@ section {
 ========================= */
 .btn {
     display: inline-block;
-    padding: 10px 22px;
-    border-radius: 999px;
-    background: #38bdf8;
-    color: #020617;
-    font-weight: 600;
-    transition: 0.2s ease;
+    margin-top: 30px;
+    padding: 10px 20px;
+    border: 1px solid #374151;
+    color: #e5e7eb;
+    text-decoration: none;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: 0.3s;
 }
 
 .btn:hover {
-    background: #7dd3fc;
+    background: #1f2937;
+    border-color: #60a5fa;
+    color: #60a5fa;
 }
 
 /* =========================
-   HERO FULL SCREEN
+   HERO
 ========================= */
 .hero-section {
-    height: calc(100vh - 70px); /* dikurangi tinggi navbar */
+    min-height: 100vh; /* FULL SCREEN */
     display: flex;
     align-items: center;
-    justify-content: center;
+    padding: 0 10%;
+    border-bottom: 1px solid #1f2937;
 }
-
-/* Wrapper */
 .hero-wrapper {
     display: flex;
     align-items: center;
-    gap: 50px;
-    max-width: 1000px;
-    padding: 0 20px;
+    gap: 80px;
 }
 
-/* Image */
 .hero-img {
-    width: 190px;
-    height: 190px;
-    object-fit: cover;
-    border-radius: 12px;
-    border: 2px solid #38bdf8;
-    flex-shrink: 0;
-}
-
-/* Text */
-.hero-info {
-    max-width: 600px;
+    width: 180px;
+    height: 180px;
+    border-radius: 2px;
+    border: 1px solid #1f242c;
 }
 
 .hero-name {
-    font-size: 2.6rem;
-    margin-bottom: 14px;
+    font-size: 1.9rem;
+    letter-spacing: 4px;
+}
+
+.hero-name::after {
+    content: "  // NETWORK ACTIVE";
+    font-size: 0.6rem;
+    letter-spacing: 3px;
+    color: #6b7280;
 }
 
 .hero-desc {
-    margin-bottom: 24px;
-    color: #cbd5f5;
+    color: #7a828c;
+    font-size: 0.9rem;
+    margin-top: 20px;
 }
 
 /* =========================
    RESPONSIVE
 ========================= */
 @media (max-width: 768px) {
+    .profile-wrapper,
     .hero-wrapper {
         flex-direction: column;
         text-align: center;
     }
 
-    .hero-section {
-        height: auto;
-        padding: 100px 0;
+    section::after {
+        margin-top: 40px;
     }
 }
-
-.nav-link-btn {
-    background: none;
-    border: none;
-    padding: 0;
-    color: #cbd5f5;
-    font: inherit;
-    cursor: pointer;
-}
-.nav-link-btn:hover {
-    color: #ffffff;
-}
-
-
-
-
-
-
-
