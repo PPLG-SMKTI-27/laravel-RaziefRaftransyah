@@ -5,6 +5,7 @@ use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
+
 // Halaman publik
 Route::get('/', [UserController::class, 'index'])->name('page.index');
 Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
@@ -35,4 +36,8 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/reset-intro', function () {
+    session()->forget('intro_seen');
+    return redirect('/');
+});
 require __DIR__.'/auth.php';

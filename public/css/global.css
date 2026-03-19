@@ -331,3 +331,23 @@ section::after {
         margin-top: 40px;
     }
 }
+/* =========================
+   UI INITIAL STATE
+========================= */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    filter: blur(6px);
+
+    transition: 
+        opacity 0.8s ease,
+        transform 0.8s ease,
+        filter 0.8s ease;
+}
+
+/* saat muncul */
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+}

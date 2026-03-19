@@ -1,0 +1,41 @@
+body {
+    margin: 0;
+    background: black;
+}
+
+/* overlay */
+.intro {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+}
+
+/* grid */
+.grid {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+}
+
+.cell {
+    border: 1px solid rgba(0,255,255,0.08);
+    background: rgba(0,0,0,0.95);
+    transition: all 0.4s ease;
+
+    box-shadow: inset 0 0 10px rgba(0,255,255,0.05);
+}
+
+.cell.active {
+    background: transparent;
+    opacity: 0;
+    transform: scale(0.8);
+
+    box-shadow: 0 0 20px cyan;
+}
+/* optional glow pas scan */
+.cell.active {
+    box-shadow: 0 0 15px cyan;
+}
